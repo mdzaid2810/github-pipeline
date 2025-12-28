@@ -1,16 +1,17 @@
-name :CI Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches: [ main ]
-  
-  job:
-    build:
-      runs-on: ubuntu-latest
 
-      steps:
-      - name: Checkout  code
-      - uses: actions/checkout@v2
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -21,4 +22,3 @@ on:
 
       - name: Run tests
         run: npm test
-      
